@@ -1,0 +1,22 @@
+{
+  "name": "zetten-gerrit",
+  "version": "0.1.0",
+  "author": "zetten",
+  "summary": "Installation and management of Gerrit code review and repository management platform.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/Zetten/puppet-gerrit",
+  "project_page": "https://github.com/Zetten/puppet-gerrit",
+  "issues_url": "https://github.com/Zetten/puppet-gerrit/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.11.0"
+    },
+    {
+      "name": "puppetlabs-inifile",
+      "version_requirement": ">= 1.5.0"
+    }
+  ],
+  "data_provider": "hiera"
+}
+

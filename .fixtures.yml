@@ -1,0 +1,10 @@
+fixtures:
+  forge_modules:
+    apt: 'puppetlabs-apt'
+    concat: 'puppetlabs-concat'
+    inifile: 'puppetlabs-inifile'
+    mysql: 'puppetlabs-mysql'
+    postgresql: 'puppetlabs-postgresql'
+    stdlib: 'puppetlabs-stdlib'
+  symlinks:
+    gerrit: "#{source_dir}"

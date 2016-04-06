@@ -1,0 +1,19 @@
+---
+gerrit::manage_repo: true
+gerrit::manage_package: true
+gerrit::package_name: gerrit
+gerrit::version: 2.12.2
+
+gerrit::manage_db: false
+
+gerrit::manage_service: true
+gerrit::service_name: gerrit
+gerrit::service_enable: true
+gerrit::service_ensure: running
+
+gerrit::user: gerrit
+gerrit::group: gerrit
+gerrit::gerrit_home: /var/gerrit
+gerrit::gerrit_config: {}
+gerrit::secure_config: {}
+gerrit::extra_configs: {}
