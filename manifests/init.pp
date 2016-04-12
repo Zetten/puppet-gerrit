@@ -6,6 +6,10 @@
 # Parameters
 # ----------
 #
+# * `manage_user`
+# True if this module should install and manage a Gerrit user and group.
+#   Default: true
+#
 # * `manage_repo`
 # True if this module should install the Gerrit package repositories
 # provided by GerritForge. If you have your own repo, set this parameter
@@ -105,6 +109,7 @@
 #
 class gerrit(
   # Installation configuration
+  $manage_user,
   $manage_repo,
   $manage_package,
   $package_name,
@@ -145,6 +150,5 @@ class gerrit(
   validate_string($service_ensure)
 
   contain ::gerrit::install
-  contain ::gerrit::config
   contain ::gerrit::service
 }

@@ -1,4 +1,5 @@
 ---
+gerrit::manage_user: true
 gerrit::manage_repo: true
 gerrit::manage_package: true
 gerrit::package_name: gerrit
