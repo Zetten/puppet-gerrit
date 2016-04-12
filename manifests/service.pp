@@ -2,10 +2,11 @@ class gerrit::service {
 
   if $gerrit::manage_service {
     service { 'gerrit':
-      name    => $gerrit::service_name,
-      ensure  => $gerrit::service_ensure,
-      enable  => $gerrit::service_enable,
-      require => Package['gerrit'],
+      name     => $gerrit::service_name,
+      ensure   => $gerrit::service_ensure,
+      enable   => $gerrit::service_enable,
+      require  => Package['gerrit'],
+      provider => redhat,
     }
 
     $manual_service_script = "${gerrit::gerrit_home}/bin/gerrit.sh"
