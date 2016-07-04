@@ -21,8 +21,8 @@ class gerrit::config {
     group   => $gerrit::group,
     require => File["${gerrit::gerrit_home}/etc"],
     mode    => '0644',
-    audit  => [content],
-    notify => $notify,
+    audit   => [content],
+    notify  => $notify,
   }
 
   file { "${gerrit::gerrit_home}/etc/secure.config":
@@ -31,18 +31,18 @@ class gerrit::config {
     group   => $gerrit::group,
     require => File["${gerrit::gerrit_home}/etc"],
     mode    => '0600',
-    audit  => [content],
-    notify => $notify,
+    audit   => [content],
+    notify  => $notify,
   }
 
   create_ini_settings($gerrit::gerrit_config, {
-    path    => "${gerrit::gerrit_home}/etc/gerrit.config",
-    require => File["${gerrit::gerrit_home}/etc/gerrit.config"]
+    path   => "${gerrit::gerrit_home}/etc/gerrit.config",
+    notify => File["${gerrit::gerrit_home}/etc/gerrit.config"]
   })
 
   create_ini_settings($gerrit::secure_config, {
-    path    => "${gerrit::gerrit_home}/etc/secure.config",
-    require => File["${gerrit::gerrit_home}/etc/secure.config"]
+    path   => "${gerrit::gerrit_home}/etc/secure.config",
+    notify => File["${gerrit::gerrit_home}/etc/secure.config"]
   })
 
   each($gerrit::extra_configs) |$configname, $settings| {
@@ -54,13 +54,13 @@ class gerrit::config {
       group   => $gerrit::group,
       require => File["${gerrit::gerrit_home}/etc"],
       mode    => '0644',
-      audit  => [content],
-      notify => $notify,
+      audit   => [content],
+      notify  => $notify,
     }
 
     create_ini_settings($settings, {
-      path    => $config_file,
-      require => File[$config_file],
+      path   => $config_file,
+      notify => File[$config_file],
     })
 
     $config_files = $config_files + $config_file
